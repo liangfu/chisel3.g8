@@ -12,7 +12,7 @@ abstract class View {
   final def apply[T](pname: Field[T]): T = apply(pname, this)
   final def apply[T](pname: Field[T], site: View): T = {
     val out = find(pname, site)
-    require (out.isDefined, s"Key ${pname} is not defined in Parameters")
+    require (out.isDefined, s"Key \${pname} is not defined in Parameters")
     out.get
   }
 

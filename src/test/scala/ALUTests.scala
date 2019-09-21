@@ -36,7 +36,7 @@ class ALUTester extends ChiselFlatSpec {
   implicit val p = (new DefaultConfig).toInstance
   behavior of "ALU"
   backends foreach {backend =>
-    it should s"perform correct math operation on dynamic operand in $backend" in {
+    it should s"perform correct math operation on dynamic operand in \$backend" in {
       Driver(() => new ALU(), backend)((c) => new ALUTests(c)) should be (true)
     }
   }

@@ -35,35 +35,35 @@ object TutorialRunner {
     for(testName <- problemsToRun) {
       tutorialMap.get(testName) match {
         case Some(test) =>
-          println(s"Starting tutorial $testName")
+          println(s"Starting tutorial \$testName")
           try {
             optionsManager.setTopName(testName)
-            optionsManager.setTargetDirName(s"test_run_dir/$section/$testName")
+            optionsManager.setTargetDirName(s"test_run_dir/\$section/\$testName")
             if(test(optionsManager)) {
               successful += 1
             }
             else {
-              errors += s"Tutorial $testName: test error occurred"
+              errors += s"Tutorial \$testName: test error occurred"
             }
           }
           catch {
             case exception: Exception =>
               exception.printStackTrace()
-              errors += s"Tutorial $testName: exception ${exception.getMessage}"
+              errors += s"Tutorial \$testName: exception \${exception.getMessage}"
             case t : Throwable =>
-              errors += s"Tutorial $testName: throwable ${t.getMessage}"
+              errors += s"Tutorial \$testName: throwable \${t.getMessage}"
           }
         case _ =>
-          errors += s"Bad tutorial name: $testName"
+          errors += s"Bad tutorial name: \$testName"
       }
 
     }
     if(successful > 0) {
-      println(s"Tutorials passing: $successful")
+      println(s"Tutorials passing: \$successful")
     }
     if(errors.nonEmpty) {
       println("=" * 80)
-      println(s"Errors: ${errors.length}: in the following tutorials")
+      println(s"Errors: \${errors.length}: in the following tutorials")
       println(errors.mkString("\n"))
       println("=" * 80)
       System.exit(1)

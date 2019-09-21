@@ -41,4 +41,3 @@ class ALUTester extends ChiselFlatSpec {
     }
   }
 }
-
